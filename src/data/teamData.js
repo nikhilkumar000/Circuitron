@@ -81,7 +81,7 @@ export const coreTeam = [
     img: "/assets/team/core5.jpg"
   },
   {
-    name: "Satya Prakash Sharma",
+    name: "Satya Prakash Kumar",
     role: "Event Management",
     rollNo: "CSE/136/22",
     linkedin: "#",
