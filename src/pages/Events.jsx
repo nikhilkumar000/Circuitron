@@ -129,64 +129,28 @@ const Events = () => {
                     {event.description}
                   </p>
                   
-                  {/* Event Details */}
-                  <div className="grid grid-cols-2 gap-4 text-sm">
-                    <div className="space-y-1">
-                      <p className="text-gray-400">Duration</p>
-                      <p className="text-white font-semibold">{event.duration}</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400">Participants</p>
-                      <p className="text-white font-semibold">{event.participants}</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400">Prize</p>
-                      <p className="text-white font-semibold">{event.prize}</p>
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-gray-400">Difficulty</p>
-                      <p className={`font-semibold ${
-                        event.difficulty === 'Beginner' ? 'text-green-400' :
-                        event.difficulty === 'Intermediate' ? 'text-yellow-400' :
-                        'text-red-400'
-                      }`}>
-                        {event.difficulty}
-                      </p>
-                    </div>
-                  </div>
-                  
-                  {/* Registration Fee */}
-                  <div className="pt-2 border-t border-primary/20">
-                    <p className="text-sm text-gray-400">Registration Fee</p>
-                    <p className="text-primary font-semibold">{event.registrationFee}</p>
-                  </div>
-                  
-                  {/* Action Button */}
+                  {/* Action Button (only Know More / registration link) */}
                   <div className="flex space-x-2">
-                    <motion.button
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex-1 btn-secondary py-2 text-sm"
-                    >
-                      Know More
-                    </motion.button>
-                    {/* Per-event registration (Robo War specific) */}
-                    {event.title.toLowerCase().includes('roborace') || event.title.toLowerCase().includes('robo') ? (
-                      <a
-                        href="https://forms.gle/pqgedTuKB1Nu5nHFA"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
+                    {event.registrationLink ? (
+                      <a href={event.registrationLink} target="_blank" rel="noopener noreferrer" className="flex-1">
                         <motion.button
                           whileHover={{ scale: 1.05 }}
                           whileTap={{ scale: 0.95 }}
                           className="w-full btn-primary py-2 text-sm"
                         >
-                          Register
+                          Know More / Register
                         </motion.button>
                       </a>
-                    ) : null}
+                    ) : (
+                      <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="flex-1 btn-secondary py-2 text-sm"
+                        onClick={() => setSelectedEvent(event)}
+                      >
+                        Know More
+                      </motion.button>
+                    )}
                   </div>
                 </div>
               </motion.div>
@@ -227,41 +191,23 @@ const Events = () => {
                 </button>
               </div>
               
-              <div className="space-y-4">
+                <div className="space-y-4">
                 <p className="text-gray-300 leading-relaxed">{selectedEvent.description}</p>
-                
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <h4 className="text-white font-semibold">Event Details</h4>
-                    <div className="space-y-1 text-sm">
-                      <p><span className="text-gray-400">Duration:</span> <span className="text-white">{selectedEvent.duration}</span></p>
-                      <p><span className="text-gray-400">Participants:</span> <span className="text-white">{selectedEvent.participants}</span></p>
-                      <p><span className="text-gray-400">Prize:</span> <span className="text-white">{selectedEvent.prize}</span></p>
-                      <p><span className="text-gray-400">Difficulty:</span> <span className="text-white">{selectedEvent.difficulty}</span></p>
-                      <p><span className="text-gray-400">Registration Fee:</span> <span className="text-white">{selectedEvent.registrationFee}</span></p>
-                    </div>
-                  </div>
-                  
-                  <div className="space-y-2">
-                    <h4 className="text-white font-semibold">Requirements</h4>
-                    <p className="text-sm text-gray-300">{selectedEvent.requirements}</p>
-                  </div>
+
+                <div className="space-y-2">
+                  <h4 className="text-white font-semibold">Requirements</h4>
+                  <p className="text-sm text-gray-300">{selectedEvent.requirements}</p>
                 </div>
-                
+
                 <div className="flex space-x-4 pt-4">
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-primary"
-                  >
-                    Register Now
-                  </motion.button>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="btn-secondary"
-                    onClick={() => setSelectedEvent(null)}
-                  >
+                  {selectedEvent.registrationLink ? (
+                    <a href={selectedEvent.registrationLink} target="_blank" rel="noopener noreferrer">
+                      <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-primary">
+                        Register / Know More
+                      </motion.button>
+                    </a>
+                  ) : null}
+                  <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="btn-secondary" onClick={() => setSelectedEvent(null)}>
                     Close
                   </motion.button>
                 </div>

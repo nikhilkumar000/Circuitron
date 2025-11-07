@@ -6,7 +6,6 @@ import Hero from '../components/Hero';
 import AboutPreview from '../components/AboutPreview';
 import EventsPreview from '../components/EventsPreview';
 import GalleryPreview from '../components/GalleryPreview';
-import Sponsors from '../components/Sponsors';
 import TeamPreview from '../components/TeamPreview';
 import ContactPreview from '../components/ContactPreview';
 
@@ -27,11 +26,8 @@ const Home = () => {
       {/* Events Preview Section */}
       <EventsPreview />
       
-      {/* Gallery Preview Section */}
-      <GalleryPreview />
-      
-      {/* Sponsors Section */}
-      <Sponsors />
+  {/* Gallery Preview Section */}
+  <GalleryPreview />
       
       {/* Team Preview Section */}
       <TeamPreview />

@@ -1,6 +1,30 @@
 // Team data for TechXpo 2025 - Circuitron Club
 // Edit this file to update team members
 
+export const facultyCoordinators = [
+  {
+    name: "Prof. Shushant Mahanty",
+    position: "Head PI",
+    linkedin: "#",
+    description: "Leading the technical vision and development of the club",
+    img: "/assets/team/faculty1.jpg"
+  },
+  {
+    name: "Prof. Deepak Kumar",
+    position: "Co-PI",
+    linkedin: "#",
+    description: "Guiding research and innovation initiatives",
+    img: "/assets/team/faculty2.jpg"
+  },
+  {
+    name: "Prof. Vikash Kumar",
+    position: "Coordinator",
+    linkedin: "#",
+    description: "Coordinating club activities and student development",
+    img: "/assets/team/faculty3.jpg"
+  }
+];
+
 export const executiveTeam = [
   {
     name: "Shashank Raj",

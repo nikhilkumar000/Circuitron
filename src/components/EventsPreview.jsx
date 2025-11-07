@@ -6,7 +6,7 @@ const MotionLink = motion(Link);
 import { events } from '../data/eventsData';
 
 const EventsPreview = () => {
-  const featuredEvents = events.slice(0, 4);
+  const featuredEvents = events.slice(0, 3);
 
   return (
     <section className="py-20 bg-gradient-to-br from-primary/5 to-secondary">
@@ -49,24 +49,18 @@ const EventsPreview = () => {
                     {event.description.substring(0, 100)}...
                   </p>
                   
-                  <div className="flex flex-wrap gap-2">
-                    <span className="px-2 py-1 bg-primary/20 text-primary text-xs rounded-full">
-                      {event.duration}
-                    </span>
-                    <span className="px-2 py-1 bg-accent/20 text-accent text-xs rounded-full">
-                      {event.difficulty}
-                    </span>
-                  </div>
-                  
                   <div className="pt-2">
-                    <MotionLink
-                      to="/events"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full text-sm btn-secondary py-2 inline-flex items-center justify-center"
-                    >
-                      Know More
-                    </MotionLink>
+                    {event.registrationLink ? (
+                      <a href={event.registrationLink} target="_blank" rel="noopener noreferrer" className="w-full block">
+                        <motion.button whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full btn-primary py-2 text-sm">
+                          Know More / Register
+                        </motion.button>
+                      </a>
+                    ) : (
+                      <MotionLink to="/events" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full text-sm btn-secondary py-2 inline-flex items-center justify-center">
+                        Know More
+                      </MotionLink>
+                    )}
                   </div>
                 </div>
               </motion.div>

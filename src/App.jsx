@@ -15,7 +15,6 @@ import Events from './pages/Events';
 import Team from './pages/Team';
 import Gallery from './pages/Gallery';
 import Schedule from './pages/Schedule';
-import Sponsors from './pages/Sponsors';
 import Contact from './pages/Contact';
 
 function App() {
@@ -35,7 +34,7 @@ function App() {
             <Route path="/team" element={<Team />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/schedule" element={<Schedule />} />
-            <Route path="/sponsors" element={<Sponsors />} />
+            {/* Sponsors page removed */}
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </AnimatePresence>

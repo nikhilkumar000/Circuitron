@@ -4,37 +4,17 @@ import { motion } from 'framer-motion';
 const Schedule = () => {
   const scheduleData = [
     {
-      day: "Day 1 - November 10, 2025",
+      day: "November 10, 2025",
       events: [
         { time: "09:00 - 10:00", title: "Registration & Welcome", location: "Main Auditorium", type: "General" },
         { time: "10:00 - 10:30", title: "Opening Ceremony", location: "Main Auditorium", type: "Ceremony" },
         { time: "10:30 - 11:00", title: "Keynote Address", location: "Main Auditorium", type: "Keynote" },
-        { time: "11:00 - 11:30", title: "Coffee Break", location: "Lobby", type: "Break" },
-        { time: "11:30 - 13:00", title: "IoT Hackathon Begins", location: "Lab 1 & 2", type: "Competition" },
-        { time: "11:30 - 13:00", title: "Circuit Design Challenge", location: "Lab 3", type: "Competition" },
-        { time: "13:00 - 14:00", title: "Lunch Break", location: "Cafeteria", type: "Break" },
-        { time: "14:00 - 16:00", title: "Project Expo Setup", location: "Exhibition Hall", type: "Exhibition" },
-        { time: "14:00 - 16:00", title: "RoboRace Competition", location: "Robotics Lab", type: "Competition" },
-        { time: "16:00 - 16:30", title: "Tea Break", location: "Lobby", type: "Break" },
-        { time: "16:30 - 18:00", title: "Technical Workshops", location: "Various Labs", type: "Workshop" },
-        { time: "18:00 - 19:00", title: "Networking Session", location: "Main Hall", type: "Networking" },
-        { time: "19:00 - 20:00", title: "Dinner", location: "Cafeteria", type: "Break" },
-        { time: "20:00 - 22:00", title: "IoT Hackathon Continues", location: "Lab 1 & 2", type: "Competition" }
-      ]
-    },
-    {
-      day: "Day 2 - November 11, 2025",
-      events: [
-        { time: "09:00 - 10:00", title: "Breakfast", location: "Cafeteria", type: "Break" },
-        { time: "10:00 - 12:00", title: "IoT Hackathon Final Presentations", location: "Main Auditorium", type: "Competition" },
-        { time: "10:00 - 12:00", title: "Project Expo Judging", location: "Exhibition Hall", type: "Exhibition" },
-        { time: "12:00 - 13:00", title: "Lunch Break", location: "Cafeteria", type: "Break" },
-        { time: "13:00 - 14:00", title: "Line Follower Challenge", location: "Robotics Lab", type: "Competition" },
-        { time: "14:00 - 15:00", title: "Embedded Systems Workshop", location: "Lab 4", type: "Workshop" },
-        { time: "15:00 - 15:30", title: "Coffee Break", location: "Lobby", type: "Break" },
-        { time: "15:30 - 17:00", title: "Award Ceremony", location: "Main Auditorium", type: "Ceremony" },
-        { time: "17:00 - 17:30", title: "Closing Remarks", location: "Main Auditorium", type: "Ceremony" },
-        { time: "17:30 - 18:00", title: "Group Photo & Farewell", location: "Main Hall", type: "General" }
+        { time: "11:00 - 11:15", title: "Short Break", location: "Lobby", type: "Break" },
+        { time: "11:15 - 13:00", title: "Robo Race", location: "Robotics Lab", type: "Competition" },
+        { time: "13:00 - 15:00", title: "Project Exhibition", location: "Exhibition Hall", type: "Exhibition" },
+        { time: "15:15 - 17:00", title: "Robo War", location: "Arena / Robotics Lab", type: "Competition" },
+        { time: "17:00 - 18:00", title: "Award Ceremony & Closing", location: "Main Auditorium", type: "Ceremony" },
+        { time: "18:00 - 18:15", title: "Group Photo & Farewell", location: "Main Hall", type: "General" }
       ]
     }
   ];

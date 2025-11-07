@@ -1,37 +1,27 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const MotionLink = motion(Link);
 
 const GalleryPreview = () => {
-  // Sample gallery images - replace with actual images
-  const galleryImages = [
-    {
-      id: 1,
-      src: "/assets/gallery/gallery1.jpg",
-      alt: "TechXpo 2024 - Opening Ceremony",
-      title: "Opening Ceremony"
-    },
-    {
-      id: 2,
-      src: "/assets/gallery/gallery2.jpg",
-      alt: "IoT Hackathon in progress",
-      title: "IoT Hackathon"
-    },
-    {
-      id: 3,
-      src: "/assets/gallery/gallery3.jpg",
-      alt: "Project Expo showcase",
-      title: "Project Expo"
-    },
-    {
-      id: 4,
-      src: "/assets/gallery/gallery4.jpg",
-      alt: "Award ceremony",
-      title: "Award Ceremony"
-    }
+  // Build a small preview list from actual public assets
+  const base = import.meta.env.BASE_URL || '/';
+  const previewFilenames = [
+    'IMG-20251024-WA0001.jpg',
+    'IMG-20251024-WA0002.jpg',
+    'IMG-20251024-WA0003.jpg',
+    'IMG-20251024-WA0004.jpg'
   ];
+
+  const galleryImages = previewFilenames.map((name, idx) => ({
+    id: idx + 1,
+    src: `${base}assets/gallery/${name}`,
+    alt: name.replace(/[-_\.]/g, ' '),
+    title: name.replace(/[-_\.]/g, ' ')
+  }));
 
   return (
     <section className="py-20 bg-gradient-to-br from-secondary to-primary/5">
@@ -64,16 +54,16 @@ const GalleryPreview = () => {
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="relative group overflow-hidden rounded-xl bg-gradient-to-br from-secondary/80 to-primary/10 backdrop-blur-sm border border-primary/20"
               >
-                {/* Placeholder for image */}
-                <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <div className="text-center space-y-2">
-                    <svg className="w-12 h-12 text-primary mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                      <path fillRule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clipRule="evenodd" />
-                    </svg>
-                    <p className="text-sm text-gray-300">{image.title}</p>
-                  </div>
+                <div className="aspect-square overflow-hidden">
+                  <LazyLoadImage
+                    src={image.src}
+                    alt={image.alt}
+                    effect="blur"
+                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    wrapperClassName="w-full h-full"
+                  />
                 </div>
-                
+
                 {/* Overlay on hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <div className="p-4 text-white">

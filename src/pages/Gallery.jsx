@@ -6,51 +6,25 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Sample gallery images - replace with actual images
-  const galleryImages = [
-    {
-      id: 1,
-      src: "/assets/gallery/IMG-20251024-WA0001.jpg",
-      alt: "TechXpo 2025 - Opening Ceremony",
-      title: "Opening Ceremony",
-      category: "Ceremony"
-    },
-    {
-      id: 2,
-      src: "/assets/gallery/IMG-20251024-WA0002.jpg",
-      alt: "Circuit Design Workshop",
-      title: "Workshop Session",
-      category: "Workshop"
-    },
-    {
-      id: 3,
-      src: "/assets/gallery/IMG-20251024-WA0003.jpg",
-      alt: "Project Exhibition",
-      title: "Project Showcase",
-      category: "Exhibition"
-    },
-    {
-      id: 4,
-      src: "/assets/gallery/IMG-20251024-WA0004.jpg",
-      alt: "Technical Presentation",
-      title: "Tech Talk",
-      category: "Workshop"
-    },
-    {
-      id: 5,
-      src: "/assets/gallery/IMG-20251024-WA0005.jpg",
-      alt: "Awards Distribution",
-      title: "Award Ceremony",
-      category: "Ceremony"
-    },
-    {
-      id: 6,
-      src: "/assets/gallery/IMG-20251024-WA0008.jpg",
-      alt: "Innovation Showcase",
-      title: "Innovation Zone",
-      category: "Exhibition"
-    }
+  // Build gallery images from public assets folder. Update this list if you add/remove images in public/assets/gallery
+  const galleryFilenames = [
+    'IMG-20251024-WA0001.jpg',
+    'IMG-20251024-WA0002.jpg',
+    'IMG-20251024-WA0003.jpg',
+    'IMG-20251024-WA0004.jpg',
+    'IMG-20251024-WA0005.jpg',
+    'IMG-20251024-WA0008.jpg'
   ];
+
+  const base = import.meta.env.BASE_URL || '/';
+
+  const galleryImages = galleryFilenames.map((name, idx) => ({
+    id: idx + 1,
+    src: `${base}assets/gallery/${name}`,
+    alt: name.replace(/[-_\.]/g, ' '),
+    title: name.replace(/[-_\.]/g, ' '),
+    category: 'Gallery'
+  }));
 
   const categories = ['All', 'Ceremony', 'Exhibition', 'Workshop'];
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -161,7 +135,6 @@ const Gallery = () => {
                     effect="blur"
                     className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     wrapperClassName="w-full h-full"
-                    placeholderSrc="/assets/placeholder.jpg"
                   />
                 </div>
                 
